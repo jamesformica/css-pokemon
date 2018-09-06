@@ -1,0 +1,290 @@
+@font-face {
+  font-family: 'pokemon_solidnormal';
+  src: url('../fonts/pokemonsolid-webfont.woff2') format('woff2'), url('../fonts/pokemonsolid-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dirt {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background: sandybrown;
+}
+
+.responsive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (max-width: 40rem) {
+  .responsive {
+    transform: scale(0.6);
+  }
+}
+
+.wrapper {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+}
+
+.wrapper.one {
+  left: calc(40% - 150px);
+  top: 35%;
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+
+.wrapper.one .diglet {
+  animation: diglet 10s infinite;
+}
+
+.wrapper.two {
+  left: 40%;
+  top: 20%;
+  height: 400px;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.wrapper.two .diglet {
+  animation: dugtrio 10s infinite;
+}
+
+.wrapper.three {
+  left: calc(40% + 50px);
+  top: 45%;
+  height: 260px;
+  transform: rotate(10deg) rotateY(180deg);
+  z-index: 3;
+}
+
+.wrapper.three .diglet {
+  animation: dugtrio 10s infinite;
+}
+
+.pokemon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.diglet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(at top left, rgb(176, 155, 134) 50px, rgb(150, 120, 92) 90px);
+  border-top-left-radius: 1000px;
+  border-top-right-radius: 1000px;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.eye {
+  position: absolute;
+  top: 50px;
+  width: 12px;
+  height: 40px;
+  border-radius: 100px;
+  background: black;
+}
+
+.eye::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  height: 12px;
+  background: white;
+  border-radius: 100px;
+}
+
+.eye.left {
+  left: 40%;
+  transform: rotate(2deg);
+}
+
+.eye.right {
+  right: 25%;
+  transform: rotate(2deg);
+}
+
+.nose {
+  position: absolute;
+  top: 94px;
+  left: 50%;
+  width: 80px;
+  height: 40px;
+  background: radial-gradient(at top left, rgb(222, 173, 203), rgb(171, 109, 142));
+  border-radius: 50% / 45%;
+  border: 2px solid black;
+  transform: translateX(-30%) rotate(-2deg);
+  box-shadow: 3px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nose::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: 20px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.8;
+  box-shadow: 0px 0px 10px white;
+}
+
+.rocks {
+  position: absolute;
+  bottom: -5px;
+  width: 80px;
+  height: 50px;
+  background: slategrey;
+  transform: rotate(5deg);
+  border: 3px solid darkslategray;
+  border-radius: 20% / 80%;
+}
+
+.rocks::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  right: 90%;
+  width: 40px;
+  height: 60px;
+  background: dimgray;
+  border: 3px solid darkslategray;
+  border-radius: 30% / 90%;
+  transform: rotate(-15deg);
+}
+
+.rocks::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 80%;
+  width: 50px;
+  height: 66px;
+  background: gray;
+  border: 3px solid darkslategray;
+  border-radius: 30% / 90%;
+  transform: rotate(10deg);
+}
+
+.rocks.one {
+  left: 0;
+}
+
+.rocks.two {
+  bottom: -10px;
+  width: 70px;
+  right: 0;
+  transform: rotateY(180deg) rotate(170deg);
+}
+
+.name {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  font-family: 'pokemon_solidnormal';
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 6px;
+  color: gold;
+  -webkit-text-stroke: 2px steelblue;
+}
+
+.name.single {
+  animation: name-diglet 10s infinite;
+}
+
+.name.triple {
+  animation: name-dugtrio 10s infinite;
+}
+
+@keyframes name-diglet {
+  0%,
+  20%,
+  44%,
+  100% {
+    transform: translateX(-50%) translateY(-200%);
+  }
+
+  24%,
+  40% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes name-dugtrio {
+  0%,
+  40%,
+  64%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(-200%);
+  }
+
+  44%,
+  60%,
+  84%,
+  96% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes diglet {
+  0%,
+  20%,
+  64%,
+  80%,
+  100% {
+    transform: translateY(100%);
+  }
+
+  24%,
+  60%,
+  84%,
+  96% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes dugtrio {
+  0%,
+  40%,
+  64%,
+  80%,
+  100% {
+    transform: translateY(100%);
+  }
+
+  44%,
+  60%,
+  84%,
+  96% {
+    transform: translateY(0);
+  }
+}
